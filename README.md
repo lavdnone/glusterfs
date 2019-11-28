@@ -1,6 +1,8 @@
 Looking to enhance small/medium file write performance with smart write
 
-### **multi-write=_S_=_W_** option:
+### **multi-write=_S_** option:
+**multi-write-confirms=_W_**
+
 N replicated volume system needs N replicas to be written it:
 
 - splits writes in to **_S_** sections/sequences/queues s1 (s2 s3) .. sS and write them to (fastest) S number of bricks separately in **parallel** (files on the fly are divided in to S sections-sequences of blocks of size **_B_**)
@@ -19,7 +21,7 @@ If S-0 - disabled
  -- With S=1 it leaves replication of files to back-end completely;
  -- With S=N it makes back-end assemble the puzzle by itself in a background.
 
-With W=2 failure of one node while writing is tolerable.
+With W=2 failure of one node while writing is tolerable. Node failure tolerance is W-1
 
 
 Later additional fail safe can be made by adding duplication writes:
