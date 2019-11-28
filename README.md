@@ -23,6 +23,7 @@ If S-0 - disabled
 
 With W=2 failure of one node while writing is tolerable. Node failure tolerance is W-1
 
+![Alt](multi-write.svg)
 
 Later additional fail safe can be made by adding duplication writes:
 ### **multi-write-redundancy**=R (default 1)
